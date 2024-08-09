@@ -49,8 +49,8 @@
     width: 768px;
     max-width: 100%;
     min-height: 480px;
-    margin-left: 40vh;
-    margin-top: 20vh;
+    left: 20%;
+    top: 25%;
   }
   
   .container p {
