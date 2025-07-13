@@ -1,0 +1,239 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#composeButton {
+    margin-bottom: 20px; 
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#composeButton:hover {
+    background-color: #218838;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 35%;
+    border-radius: 8px;
+}
+
+textarea{
+    width: 95%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.post {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px; 
+    position: relative; 
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.delete-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: red;
+    font-size: 18px;
+}
+
+.delete-icon:hover {
+    color: darkred;
+}
+
+.post-image {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.post-ratings-container {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.post-rating-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.post-rating-button i {
+    color: #007bff;
+}
+
+.post-rating-button:hover i {
+    color: #0056b3;
+}
+
+.post-rating-count {
+    font-size: 16px;
+    color: #555;
+}
+
+.comment-section {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.comment-section textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.comment-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comment-button:hover {
+    background-color: #0056b3;
+}
+
+.comment {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+header {
+    background-color: #3524a3;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%;
+  }
+  h1 {
+    margin: 0;
+    color: #fff;
+  }
+  h1 .highlight {
+    color: orange;
+  }
+  .hamburger {
+    display: block; 
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .nav-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
+  }
+  
+  .nav-menu ul li {
+    display: block;
+    margin: 15px 0;
+    text-align: left;
+    margin: 20px;
+    font-size: larger;
+  }
+  
+  .nav-menu ul li a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  .nav-menu ul li a i{
+    margin-right: 10px;
+  }
+  
+  .nav-menu {
+    display: none;
+    background-color: #3524a3c2;
+    position: absolute;
+    left: 0;
+    top: 60px;
+    width: 280px;
+    height:100%;
+    z-index: 999;
+  }
+  
+  .nav-menu.open {
+    display: block;
+    color: #f0f0f0;
+  }
+  
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+  
+    .nav-menu {
+      display: none; 
+    }
+  }
+  
+  .nav-menu ul li:hover {
+  background-color: #3524a3;
+  border-radius: 5px;
+  text-align: center;
+  padding: 7px;
+  }
+  

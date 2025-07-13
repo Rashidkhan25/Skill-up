@@ -14,46 +14,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <title>Login Page</title>
   </head>
   <body>
     <div id="navbar">
-      <a class="logo"><img id="logo" src="logo.png"></a>
+      <a class="logo"><img id="logo" src="logo.png" alt="Logo"></a>
     </div>
+
     <div class="container" id="container">
       <div class="sign-up">
-        <form>
+        <form action="/submit" method="post">
           <h1>Create Account</h1>
           <div class="icons">
             <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.instagram.com/__skillup08__" class="icon"><i class="fa-brands fa-instagram"></i></a>
             <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
-            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="https://github.com/Rashidkhan25/Skill-up" class="icon"><i class="fa-brands fa-github"></i></a>
           </div>
-          <span>or use email for registeration</span>
-          <input type="text" placeholder="Name" required/>
-          <input type="text" placeholder="Email" required/>
-          <input type="password" placeholder="Password" required/>
-          <button id="button">Sign Up</button>
+          <span>Use your email for registration</span>
+          <input type="text" placeholder="Name" class="input" name="name" required />
+          <input type="email" placeholder="Email" class="input" name="email" required />
+          <input type="password" placeholder="Password" class="input" name="password" required />
+          <button id="button" type="submit">Sign Up</button>
         </form>
       </div>
+
+      <!-- Sign In Section -->
       <div class="sign-in">
-        <form>
+        <form action="/login" method="post">
           <h1>Sign In</h1>
           <div class="icons">
             <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://www.instagram.com/__skillup08__?igsh=Y3d4YzJjajdhcjk0" class="icon"><i class="fa-brands fa-instagram"></i></a>
             <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
-            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="https://github.com/Rashidkhan25/Skill-up" class="icon"><i class="fa-brands fa-github"></i></a>
           </div>
-          <span>or use email password</span>
-          <input type="text" placeholder="Email" required/>
-          <input type="password" placeholder="Password" required/>
+          <span>Use email password</span>
+          <input type="text" placeholder="Email" class="input" name="Email" required>
+          <input type="password" placeholder="Password" class="input" name="password" required/>
           <a href="#">Forgot password ?</a>
-          <button id="button">Sign In</button>
+          <button id="signInButton" type="button">Sign In</button>
         </form>
       </div>
       <div class="toogle-container">
@@ -71,6 +74,7 @@
         </div>
       </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

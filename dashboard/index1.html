@@ -1,0 +1,116 @@
+<html>
+ <head>
+  <title>SkillUp Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+ </head>
+ <body>
+  <header>
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="navMenu" class="nav-menu">
+      <ul>
+        <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+        <li><a href="../To do list/index.html"><i class="fas fa-list"></i> To Do List</a></li>
+        <li><a href="#"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+        <li><a href="../Question Sheet/question.html"><i class="fas fa-question-circle"></i> Quiz</a></li>
+        <li><a href="../video prototype/index.html"><i class="fas fa-video"></i> Videos</a></li>
+        <li><a href="../post/index.html"><i class="fas fa-newspaper"></i> Post</a></li>
+        <li><a href="../Discord room/index.html"><i class="fas fa-users"></i> Group Disscusion</a></li>
+      </ul>
+    </nav>
+    <h1>Skill<span class="highlight">Up</span> Dashboard </h1>
+  </header>
+  <div class="container">
+    <div class="box profile">
+      <form id="profileForm">
+        <button type="button" id="uploadPhotoBtn" onclick="document.getElementById('profilePic').click()">Upload Photo</button>
+        <input type="file" id="profilePic" accept="image/*" style="display: none;" onchange="displayProfileImage(event)">
+        <img id="profileImage" alt="Profile Picture" />
+
+        <button type="button" id="editPhotoBtn" onclick="document.getElementById('profilePic').click()">Edit Photo</button>
+        
+        <h2 id="name">SAISH SATAM</h2>
+        <p>ID: 232573101</p>
+        <p>saish.232573101@vcet.edu.in</p>
+
+        <!-- Resume Upload -->
+        <label for="resumeUpload" id="resumeSection">
+          <button type="button" id="resumeBtn" onclick="document.getElementById('resumeUpload').click()">Upload Resume</button>
+        </label>
+        <input type="file" id="resumeUpload" accept="application/pdf" style="display: none;" onchange="handleResumeUpload(event)">
+        <p id="resumeFileName"></p>
+
+        <div class="contact-info">
+          <a href="https://www.linkedin.com/in/saish-satam-63b973319?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/SaishSatam063"><i class="fab fa-github"></i></a>
+        </div>
+        <h3>PROJECTS</h3>
+        <ul id="projectsList"></ul>
+        <button type="button" onclick="openModal()">Add Project</button>
+      </form>
+    </div>
+
+  <!-- Modal for Adding Project -->
+  <div class="overlay" id="overlay" onclick="closeModal()"></div>
+  <div class="modal" id="projectModal">
+    <h2>Add Project</h2>
+    <input type="text" id="projectName" placeholder="Project Name" required />
+    <input type="url" id="githubLink" placeholder="GitHub Link" required />
+    <textarea id="description" placeholder="Project Description"></textarea>
+    <div class="modal-buttons">
+      <button type="button" onclick="closeModal()">Cancel</button>
+      <button type="button" onclick="saveProject()">Save</button>
+    </div>
+  </div>
+  
+    <div class="box todo-list">
+      <h2>TO DO LIST</h2>
+      <ul>
+        <li><input checked="" type="checkbox"/> PYTHON</li>
+        <li><input type="checkbox"/> JAVA</li>
+        <li><input type="checkbox"/> C++</li>
+        <li><input type="checkbox"/> DSA</li>
+      </ul>
+    </div>
+
+    <div class="box calendar">
+      <h2>CALENDAR</h2>
+      <div id="calendar-container">
+        <div id="calendar"></div>
+      </div>
+      <p id="event-info">No events today</p>
+    </div>
+
+    <div class="box quiz">
+      <h2>QUIZ</h2>
+      <ul>
+        <li><a href="../Question Sheet/question.html">SkillUp QuestionSheet</a></li><br>
+        <li><a href="../Apptitude QuestionSheet/question.html">Aptitude QuestionSheet</a></li><br>
+        <li><a href="#">Paid QuestionSheet <i class="fas fa-crown"></i></a></li><br>
+      </ul>
+    </div>
+
+    <div class="box videos">
+      <h2>VIDEOS</h2>
+      <ul>
+        <li><a href="#">Data Structure and Algorithms</a></li><br>
+        <li><a href="#">Communication Skills</a></li><br>
+        <li><a href="#">Mock Interviews</a></li><br>
+        <li><a href="#">Time Management</a></li><br>
+        <li><a href="#">Placement Training</a></li><br>
+      </ul>
+    </div>
+
+    <div class="box news-section">
+      <h2>Recent Technology News</h2>
+    </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script src="script.js"></script>
+ </body>
+</html>

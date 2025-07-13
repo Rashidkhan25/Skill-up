@@ -1,0 +1,378 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+
+  header {
+    background-color: #3524a3;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  h1 {
+    margin: 0;
+    color: #fff;
+  }
+
+  #name{
+    border: none;
+  }
+  h1 .highlight {
+    color: orange;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .box {
+    background-color: white;
+    border-radius: 8px;
+   border: 1px solid #ddd;
+    width: 100%;
+    max-width: 350px; 
+    max-height: 400px; 
+    overflow: auto; 
+    padding: 20px;
+    margin: 10px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #profileImage {
+    display: none;
+    border-radius: 50%;
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+
+  #editPhotoBtn {
+    display: none;
+    margin-left: 135px;
+    margin-top: 10px;
+  }
+
+  #resumeFileName {
+    display: none;
+  }
+
+  #resumeBtn {
+    margin-left: 115px;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  .modal input, .modal textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+  }
+
+  .modal-buttons {
+    text-align: right;
+  }
+
+  .modal-buttons button {
+    margin-left: 10px;
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  .profile h2, .profile p {
+    margin: 5px 0;
+    text-align: center;
+  }
+  .profile .contact-info {
+    text-align: center;
+  }
+  #resumeBtn{
+    text-align: center;
+  }
+
+  #projectsList li{
+    margin-bottom: 9px;
+  }
+
+  .profile .contact-info a {
+    margin: 0 5px;
+    color: #0056b3;
+  }
+
+  .todo-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  .todo-list li {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+  }
+  .todo-list input {
+    margin-right: 10px;
+  }
+  
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  }
+
+.box.calendar {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.box.calendar:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-color: #cfcfcf;
+}
+
+.box.calendar h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  border-bottom: 2px solid #0073e6;
+  padding-bottom: 10px;
+}
+
+#calendar-container {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+#calendar {
+  width: 100%;
+  font-size: 14px;
+  color: #333;
+}
+
+.fc-row-header-cell {
+  text-align: center;
+  margin-right: 5px;  
+}
+
+.fc-footer-toolbar {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;  
+}
+.fc .fc-col-header-cell-cushion {
+  padding: 0;
+  padding-right: 10px;
+}
+
+.fc-button {
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 4px;
+  margin: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.fc-button:hover {
+  background-color: #005bb5;
+}
+
+.fc-toolbar-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.fc-prev-button, .fc-next-button {
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.fc-prev-button:hover, .fc-next-button:hover {
+  background-color: #005bb5;
+}
+
+#event-info {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  border-left: 4px solid #0073e6;
+  color: #333;
+  font-size: 14px;
+}
+
+  .videos ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .videos li {
+    margin: 5px 0;
+  }
+
+  .videos a {
+    color: #0056b3;
+    text-decoration: none;
+  }
+
+  .videos a:hover {
+    text-decoration: underline;
+  }
+
+  .news-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+h2{
+    border-bottom: 2px solid #0073e6;
+    padding-bottom: 5px;
+  }
+
+  .news-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+   
+  }
+  
+  .news-item p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .react {
+    text-align: right;
+  }
+  
+  .react button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .react button:hover {
+    background-color: #0056b3;
+  }
+  
+  #calendar {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  #calendar th, #calendar td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  #calendar .today {
+    background-color: #ffcc00;
+  }
+  
+.hamburger {
+  display: block; 
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.nav-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+}
+
+.nav-menu ul li {
+  display: block;
+  margin: 15px 0;
+  text-align: left;
+  margin: 20px;
+  font-size: larger;
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.nav-menu ul li a i{
+  margin-right: 10px;
+}
+
+.nav-menu {
+  display: none;
+  background-color: #3524a3c2;
+  position: absolute;
+  left: 0;
+  top: 60px;
+  width: 280px;
+  height:100%;
+}
+
+.nav-menu.open {
+  display: block;
+  color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+}
+
+.nav-menu ul li:hover {
+background-color: #3524a3;
+border-radius: 5px;
+text-align: center;
+padding: 7px;
+}

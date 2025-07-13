@@ -36,10 +36,6 @@
     padding-left: 10px;
   }
   
-  .logo{
-    /* padding-top: ; */
-  }
-
   .container {
     background-color: #fff;
     border-radius: 150px;
@@ -49,8 +45,9 @@
     width: 768px;
     max-width: 100%;
     min-height: 480px;
-    left: 20%;
-    top: 25%;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-45%);
   }
   
   .container p {
@@ -242,3 +239,4 @@
   button{
     transition-duration: 0.5s;
   }
+  

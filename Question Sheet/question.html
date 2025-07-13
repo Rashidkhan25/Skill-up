@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SkillUp Question Sheet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+    background-color: #3524a3;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  h1 {
+    margin: 0;
+    color: #fff;
+  }
+
+  h1 .highlight {
+    color: orange;
+  }
+
+  .hamburger {
+    display: block; 
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .nav-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
+    z-index: 999;
+  }
+  
+  .nav-menu ul li {
+    display: block;
+    margin: 15px 0;
+    text-align: left;
+    margin: 20px;
+    font-size: larger;
+  }
+  
+  .nav-menu ul li a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  .nav-menu ul li a i{
+    margin-right: 10px;
+  }
+
+  .nav-menu {
+    display: none;
+    background-color: #3524a3c2;
+    position: absolute;
+    left: 0;
+    top: 60px;
+    width: 280px;
+    height:100%;
+    z-index: 999;
+  }
+  
+  .nav-menu.open {
+    display: block;
+    color: #f0f0f0;
+  }
+  
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+  
+    .nav-menu {
+      display: none; 
+    }
+  }
+  
+  .nav-menu ul li:hover {
+  background-color: #3524a3;
+  border-radius: 5px;
+  text-align: center;
+  padding: 7px;
+  }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .button {
+      background-color: #4285f4;
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #100d9d;
+    }
+
+    table {
+      width: 90%;
+      margin: 2rem auto;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: #e9ecef;
+      text-align: center;
+    }
+
+    .problem-title {
+      font-weight: bold;
+    }
+
+    .status, .revisit {
+      text-align: center;
+      width: 12%; 
+    }
+
+    .status button, .revisit button {
+      width: 100px;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .solved {
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    .unsolved {
+      background-color: #f44336;
+      color: #fff;
+    }
+
+    .revisit button {
+      background-color: #ffeb3b;
+      color: #282c34;
+    }
+
+    .progress-container {
+      width: 90%;
+      margin: 2rem auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .progress-bar {
+      flex-grow: 1;
+      height: 30px;
+      background-color: #ddd;
+      border-radius: 5px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background-color: #4285f4;
+      border-radius: 5px;
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .progress-text {
+      margin-left: 1rem;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="navMenu" class="nav-menu">
+      <ul>
+        <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+        <li><a href="#"><i class="fas fa-list"></i> To Do List</a></li>
+        <li><a href="#"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+        <li><a href="#"><i class="fas fa-question-circle"></i> Quiz</a></li>
+        <li><a href="#"><i class="fas fa-video"></i> Videos</a></li>
+        <li><a href="#"><i class="fas fa-newspaper"></i> News</a></li>
+        <li><a href="../Discord room/index.html"><i class="fa-solid fa-users"></i> Group Disscusion</a></li>
+      </ul>
+    </nav>
+    <h1>Skill<span class="highlight">Up</span> Question Sheet </h1>
+  </header>
+
+  <nav>
+    <button class="button" onclick="loadQuestions(100)">100</button>
+    <button class="button" onclick="loadQuestions(200)">200</button>
+    <button class="button" onclick="loadQuestions(300)">300</button>
+    <button class="button" onclick="loadQuestions(400)">400</button>
+    <button class="button" onclick="loadQuestions(500)">500</button>
+    <button class="button" onclick="loadQuestions(600)">600</button>
+    <button class="button" onclick="loadQuestions(700)">700</button>
+    <button class="button" onclick="loadQuestions(800)">800</button>
+    <button class="button" onclick="loadQuestions(900)">900</button>
+  </nav>
+
+  <div class="progress-container">
+    <div class="progress-bar">
+      <div class="progress-bar-fill" style="width: 0%;"></div>
+    </div>
+    <h2 class="progress-text"><span id="solved-count">0</span>/10 Solved</h2>
+  </div>
+
+  <table id="question-table">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Problem</th>
+        <th class="status">Status</th>
+        <th class="revisit">Revisit</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    let solvedProblems = 0;
+
+    const questionSets = {
+      100: [
+        { title: 'Two Sum', url: 'https://leetcode.com/problems/two-sum/description/' },
+        { title: 'Palindrome Number', url: 'https://leetcode.com/problems/palindrome-number/description/' },
+        { title: 'Sqrt(x)', url: 'https://leetcode.com/problems/sqrtx/description/' },
+        { title: 'Add Binary', url: 'https://leetcode.com/problems/add-binary/description/' },
+        { title: 'Linked List Cycle', url: 'https://leetcode.com/problems/linked-list-cycle/description/' },
+        { title: 'Number of 1 Bits', url: 'https://leetcode.com/problems/number-of-1-bits/description/' },
+        { title: 'Implement Queue using Stack', url: 'https://leetcode.com/problems/implement-queue-using-stacks/description/' },
+        { title: 'Power of Two', url: 'https://leetcode.com/problems/power-of-two/' },
+        { title: 'Add Digits', url: 'https://leetcode.com/problems/add-digits/description/' },
+        { title: 'Fibonacci Number', url: 'https://leetcode.com/problems/fibonacci-number/description/' }
+      ],
+      
+      200: [
+        { title: 'Longest Substring', url: 'https://leetcode.com/problems/longest-substring-without-repeating-characters/' },
+        { title: 'Median of Two Sorted Arrays', url: 'https://leetcode.com/problems/median-of-two-sorted-arrays/' },
+        { title: 'Roman to Integer', url: 'https://leetcode.com/problems/roman-to-integer/description/' },
+      { title: 'Longest Common Prefix', url: 'https://leetcode.com/problems/longest-common-prefix/description/' },
+      { title: 'Valid Parentheses', url: 'https://leetcode.com/problems/valid-parentheses/description/' },
+      { title: 'Merge Two Sorted Lists', url: 'https://leetcode.com/problems/merge-two-sorted-lists/description/' },
+      { title: 'Remove Duplicates from Sorted Array', url: 'https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/' },
+      { title: 'Remove Element', url: 'https://leetcode.com/problems/remove-element/description/' },
+      { title: 'Length of Last Word', url: 'https://leetcode.com/problems/length-of-last-word/description/' },
+      { title: 'Binary Tree in order Traversal', url: 'https://leetcode.com/problems/binary-tree-inorder-traversal/description/' },
+      ],
+
+      300: [
+      { title: 'Same Tree', url: 'https://leetcode.com/problems/same-tree/description/' },
+      { title: 'Maximum Depth of Binary Tree', url: 'https://leetcode.com/problems/maximum-depth-of-binary-tree/description/' },
+      { title: 'Convert Sorted Array to Binary Search Tree', url: 'https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/' },
+      { title: 'Pascal Triangle', url: 'https://leetcode.com/problems/pascals-triangle/description/' },
+      { title: 'Single Number', url: 'https://leetcode.com/problems/single-number/description/' },
+      { title: 'Majority Element', url: 'https://leetcode.com/problems/majority-element/description/' },
+      { title: 'Excel Sheet Column Number', url: 'https://leetcode.com/problems/excel-sheet-column-number/description/' },
+      { title: 'Valid Anagram', url: 'https://leetcode.com/problems/valid-anagram/description/' },
+      { title: 'Move Zeroes', url: 'https://leetcode.com/problems/move-zeroes/description/' },
+      { title: 'Reverse String', url: 'https://leetcode.com/problems/reverse-string/description/' },
+    ],
+      
+    400:[ 
+      { title: 'Container with Most Water', url: 'https://leetcode.com/problems/container-with-most-water/description/' },
+      { title: 'Integer to Roman', url: 'https://leetcode.com/problems/integer-to-roman/description/' },
+      { title: 'Letter Combinations of a Phone Number', url: 'https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/' },
+      { title: 'Generate Parentheses', url: 'https://leetcode.com/problems/generate-parentheses/description/' },
+      { title: 'Valid Sudoku', url: 'https://leetcode.com/problems/valid-sudoku/description/' },
+      { title: 'Swap Nodes in Pairs', url: 'https://leetcode.com/problems/swap-nodes-in-pairs/description/' },
+      { title: 'Combination Sum', url: 'https://leetcode.com/problems/combination-sum/description/' },
+      { title: 'Permutations', url: 'https://leetcode.com/problems/permutations/description/' },
+      { title: 'Rotate Image', url: 'https://leetcode.com/problems/rotate-image/description/' },
+      { title: 'Group Anagram', url: 'https://leetcode.com/problems/group-anagrams/description/' },
+    ],
+
+    500: [
+      { title: 'Unique Paths', url: 'https://leetcode.com/problems/unique-paths/description/' },
+      { title: 'Minimum Path Sum', url: 'https://leetcode.com/problems/minimum-path-sum/description/' },
+      { title: 'Set Matrix Zeroes', url: 'https://leetcode.com/problems/set-matrix-zeroes/description/' },
+      { title: 'Sort Colors', url: 'https://leetcode.com/problems/sort-colors/description/' },
+      { title: 'Combinations', url: 'https://leetcode.com/problems/combinations/description/' },
+      { title: 'Partition List', url: 'https://leetcode.com/problems/partition-list/description/' },
+      { title: 'Gray Code', url: 'https://leetcode.com/problems/gray-code/description/' },
+      { title: 'Unique Binary Search Trees', url: 'https://leetcode.com/problems/unique-binary-search-trees/description/' },
+      { title: 'Binary Tree Level Order Traversal', url: 'https://leetcode.com/problems/binary-tree-level-order-traversal/description/' },
+      { title: 'Convert Sorted List to Binary Search Tree', url: 'https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/' },
+    ],
+
+    600: [
+      { title: 'Palindrome Partitioning', url: 'https://leetcode.com/problems/palindrome-partitioning/description/' },
+      { title: 'Clone Graph', url: 'https://leetcode.com/problems/clone-graph/description/' },
+      { title: 'Sort List', url: 'https://leetcode.com/problems/sort-list/description/' },
+      { title: 'Reorder List', url: 'https://leetcode.com/problems/reorder-list/description/' },
+      { title: 'Min Stack', url: 'https://leetcode.com/problems/min-stack/description/' },
+      { title: 'Number of Island', url: 'https://leetcode.com/problems/number-of-islands/description/' },
+      { title: 'Kth Largest Element', url: 'https://leetcode.com/problems/kth-largest-element-in-an-array/description/' },
+      { title: 'Delete Node in a Linked List', url: 'https://leetcode.com/problems/delete-node-in-a-linked-list/description/' },
+      { title: 'Product of Array Except Self', url: 'https://leetcode.com/problems/product-of-array-except-self/description/' },
+      { title: 'Different Ways to Add Parentheses', url: 'https://leetcode.com/problems/different-ways-to-add-parentheses/description/' },
+    ], 
+    
+    700: [
+      { title: 'Merge K Sorted Lists', url: 'https://leetcode.com/problems/merge-k-sorted-lists/description/' },
+      { title: 'Reverse Nodes in K Group', url: 'https://leetcode.com/problems/reverse-nodes-in-k-group/description/' },
+      { title: 'Sudoku Solver', url: 'https://leetcode.com/problems/sudoku-solver/description/' },
+      { title: 'Trapping Rain Water', url: 'https://leetcode.com/problems/trapping-rain-water/description/' },
+      { title: 'N-Queens', url: 'https://leetcode.com/problems/n-queens/description/' },
+      { title: 'N-Queens II', url: 'https://leetcode.com/problems/n-queens-ii/description/' },
+      { title: 'Serialize and Deserialize Binary Tree', url: 'https://leetcode.com/problems/serialize-and-deserialize-binary-tree/description/' },
+      { title: 'Burst Ballooons', url: 'https://leetcode.com/problems/burst-balloons/description/' },
+      { title: 'Longest Increasing Path in a Matrix', url: 'https://leetcode.com/problems/longest-increasing-path-in-a-matrix/description/' },
+      { title: 'Patching Array', url: 'https://leetcode.com/problems/patching-array/description/' },
+    ],
+
+    800: [
+      { title: 'Data Stream as Disjoint Intervals', url: 'https://leetcode.com/problems/data-stream-as-disjoint-intervals/description/' },
+      { title: 'Split Array Largest Sum', url: 'https://leetcode.com/problems/split-array-largest-sum/description/' },
+      { title: 'Poor Pigs', url: 'https://leetcode.com/problems/poor-pigs/description/' },
+      { title: 'Freedom Trail', url: 'https://leetcode.com/problems/freedom-trail/description/' },
+      { title: 'Students Attendance Record', url: 'https://leetcode.com/problems/student-attendance-record-ii/description/' },
+      { title: 'Strange Printer', url: 'https://leetcode.com/problems/strange-printer/description/' },
+      { title: '24-Game', url: 'https://leetcode.com/problems/24-game/description/' },
+      { title: 'Number of Atoms', url: 'https://leetcode.com/problems/number-of-atoms/description/' },
+      { title: 'Cracking the Safe', url: 'https://leetcode.com/problems/cracking-the-safe/description/' },
+      { title: 'Special Binary String', url: 'https://leetcode.com/problems/special-binary-string/description/' },
+    ],
+
+    900: [
+      { title: 'Couples Holding Hands', url: 'https://leetcode.com/problems/couples-holding-hands/description/' },
+      { title: 'Sliding Puzzle', url: 'https://leetcode.com/problems/sliding-puzzle/description/' },
+      { title: 'Swim in Rising Water', url: 'https://leetcode.com/problems/swim-in-rising-water/description/' },
+      { title: 'Transform to Chessboard', url: 'https://leetcode.com/problems/transform-to-chessboard/description/' },
+      { title: 'Chalkboard XOR Game', url: 'https://leetcode.com/problems/chalkboard-xor-game/description/' },
+      { title: 'Sum of Distances in Tree', url: 'https://leetcode.com/problems/sum-of-distances-in-tree/description/' },
+      { title: 'Similar String Groups', url: 'https://leetcode.com/problems/similar-string-groups/description/' },
+      { title: 'Shortest Pah Visiting All Nodes', url: 'https://leetcode.com/problems/shortest-path-visiting-all-nodes/description/' },
+      { title: 'Minimum Cost to Hire K Workers', url: 'https://leetcode.com/problems/minimum-cost-to-hire-k-workers/description/' },
+      { title: 'Maximum Frequency Stack', url: 'https://leetcode.com/problems/maximum-frequency-stack/description/' },
+    ],
+    };
+
+    const progressBarFill = document.querySelector('.progress-bar-fill');
+    const questionTableBody = document.querySelector('#question-table tbody');
+
+    function loadQuestions(setNumber) {
+      const questions = questionSets[setNumber];
+      questionTableBody.innerHTML = ''; 
+
+      questions.forEach((question, index) => {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td><a href="${question.url}" class="problem-title">${question.title}</a></td>
+          <td class="status">
+            <button class="unsolved" onclick="toggleSolved(this)">Unsolved</button>
+          </td>
+          <td class="revisit">
+            <button onclick="toggleRevisit(this)">Revisit</button>
+          </td>
+        `;
+
+        questionTableBody.appendChild(row);
+      });
+    }
+
+    function updateProgressBar() {
+      const progressPercentage = (solvedProblems / 10) * 100;
+      progressBarFill.style.width = progressPercentage + '%';
+      document.getElementById('solved-count').innerText = solvedProblems;
+    }
+
+    function toggleSolved(button) {
+      if (button.classList.contains('unsolved')) {
+        button.classList.remove('unsolved');
+        button.classList.add('solved');
+        button.innerText = 'Solved';
+        solvedProblems++;
+      } else {
+        button.classList.remove('solved');
+        button.classList.add('unsolved');
+        button.innerText = 'Unsolved';
+        solvedProblems--;
+      }
+      updateProgressBar();
+    }
+
+    function toggleRevisit(button) {
+      if (button.innerText === 'Revisit') {
+        button.innerText = 'Bookmarked';
+        button.style.backgroundColor = '#ffa500';
+      } else {
+        button.innerText = 'Revisit';
+        button.style.backgroundColor = '#ffeb3b';
+      }
+    }
+
+    loadQuestions(100);
+
+    function toggleMenu() {
+    const navMenu = document.getElementById('navMenu');
+    navMenu.classList.toggle('open');
+  }
+  </script>
+</body>
+</html>
