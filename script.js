@@ -11,5 +11,5 @@ loginbtn.addEventListener("click", () => {
   container.classList.remove("active");
 });
 document.getElementById('signInButton').addEventListener('click', function() {
-  window.location.href = '../dashboard/index1.html';
+  window.location.href = './dashboard/index1.html';
 });
